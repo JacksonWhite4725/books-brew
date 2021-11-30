@@ -74,7 +74,7 @@
 }
 
 .active > .wrapper > .right > .hamburger > span:first-child {
-    background-color: #EDF2F4;
+    background-color: #D90429;
     transform: rotate(45deg);
 }
 
@@ -83,6 +83,6 @@
 }
 
 .active > .wrapper > .right > .hamburger > span:last-child {
-    background-color: #EDF2F4;
+    background-color: #D90429;
     transform: rotate(-45deg);
 }
