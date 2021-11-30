@@ -1,7 +1,7 @@
 .header {
     width: 100%;
     height: 70px;
-    background-color: #D90429;
+    background-color: #582F0E;
     color: #EDF2F4;
     position: fixed;
     top: 0;
@@ -70,11 +70,11 @@
 
 .active {
     background-color: #EDF2F4;
-    color: #D90429;
+    color: #7F4F24;
 }
 
 .active > .wrapper > .right > .hamburger > span:first-child {
-    background-color: #D90429;
+    background-color: #7F4F24;
     transform: rotate(45deg);
 }
 
@@ -83,6 +83,6 @@
 }
 
 .active > .wrapper > .right > .hamburger > span:last-child {
-    background-color: #D90429;
+    background-color: #7F4F24;
     transform: rotate(-45deg);
 }

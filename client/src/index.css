@@ -1,10 +1,9 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #272f32;
-  --error: rgb(228, 46, 1);
+  --primary: #582F0E;
+  --secondary: #7F4F24;
+  --tertiary: #A4AC86;
+  --light: #EDF2F4;
+  --dark: #333D29;
 }
 
 .app {
@@ -14,7 +13,6 @@
 .pages {
   width: 100%;
   height: calc(100vh - 70px);
-  background-color: lightseagreen;
   position: relative;
   top: 70px;
   scroll-behavior: smooth;
@@ -28,8 +26,21 @@
 }
 
 .home {
-  background-color: #8D99AE;
-  display: flex;
   height: 100%;
   width: 100%;
+  background-image: url(./images/beer-homepage.jpg);
+  background-size: cover;
+}
+
+.home-right-container {
+  width: 40%;
+  float: right;
+  margin: 10px;
+  color: black;
+}
+
+.home-title {
+  margin-top: 60px;
+  font-size: 60px;
+  background: rgba(51, 61, 41, 0.75);
 }

@@ -1,7 +1,7 @@
 .menu {
     width: 300px;
     height: 100vh;
-    background-color: #D90429;
+    background-color: #7F4F24;
     color: #EDF2F4;
     position: fixed;
     top: 0;
@@ -17,7 +17,7 @@
 .active {
     right: 0;
     background-color: #EDF2F4;
-    color: #D90429;
+    color: #7F4F24;
 }
 
 .menu > ul {

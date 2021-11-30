@@ -44,7 +44,7 @@ function Menu({ menuOpen, setMenuOpen }) {
                 </li>
                 <li onClick={()=>setMenuOpen(false)}>
                     <Link to='/contact'>
-                        Contact Us
+                        Contact
                     </Link>
                 </li>
             </ul>
