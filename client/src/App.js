@@ -9,6 +9,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { useState } from 'react';
 
+import Home from './pages/Home';
 import Nav from './components/Nav';
 import Menu from './components/Menu';
 
@@ -36,9 +37,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div className='app'>
           <Nav menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
           <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+          <div className='pages'>
+          <Switch>
+              <Route exact path="/" component={Home} />
+          </Switch>
+          </div>
         </div>
       </Router>
     </ApolloProvider>
