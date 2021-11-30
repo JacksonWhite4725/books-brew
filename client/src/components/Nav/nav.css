@@ -1,0 +1,88 @@
+.header {
+    width: 100%;
+    height: 70px;
+    background-color: #D90429;
+    color: #EDF2F4;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    transition: all 1s ease;
+}
+
+.wrapper {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: 700;
+    text-decoration: none;
+    color: inherit;
+    margin-right: 40px;
+}
+
+.itemContainer {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.icon {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.itemContainer > span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.itemContainer > span > a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+.hamburger {
+    width: 32px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hamburger > span {
+    width: 100%;
+    height: 3px;
+    background-color: #EDF2F4;
+    transform-origin: left;
+    transition: all 1s ease;
+}
+
+.active {
+    background-color: #EDF2F4;
+    color: #D90429;
+}
+
+.active > .wrapper > .right > .hamburger > span:first-child {
+    background-color: #EDF2F4;
+    transform: rotate(45deg);
+}
+
+.active > .wrapper > .right > .hamburger > span:nth-child(2) {
+    opacity: 0;
+}
+
+.active > .wrapper > .right > .hamburger > span:last-child {
+    background-color: #EDF2F4;
+    transform: rotate(-45deg);
+}

@@ -7,6 +7,10 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { useState } from 'react';
+
+import Nav from './components/Nav';
+import Menu from './components/Menu';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -28,10 +32,13 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <ApolloProvider client={client}>
       <Router>
         <div>
+          <Nav menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+          <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
         </div>
       </Router>
     </ApolloProvider>
