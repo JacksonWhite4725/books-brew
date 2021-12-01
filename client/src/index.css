@@ -44,3 +44,13 @@
   font-size: 60px;
   background: rgba(51, 61, 41, 0.75);
 }
+
+.home-quiz-button {
+  margin-top: 60px;
+  color: white;
+}
+
+.home-quiz-button-link {
+  text-decoration: none;
+  color: inherit;
+}
