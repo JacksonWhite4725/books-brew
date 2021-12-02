@@ -33,21 +33,31 @@
 }
 
 .home-right-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   width: 40%;
   float: right;
-  margin: 10px;
-  color: black;
+  margin: 110px 20px;
+  color: var(--primary);
+  background-color: var(--light);
+  border: solid black 5px;
+  align-items: center;
 }
 
 .home-title {
-  margin-top: 60px;
+  margin: 50px 10px;
   font-size: 60px;
-  background: rgba(51, 61, 41, 0.75);
+  text-align: center;
 }
 
 .home-quiz-button {
-  margin-top: 60px;
-  color: white;
+  font-size: 45px;
+  margin-bottom: 60px;
+  color: var(--dark);
+  border: solid black 1px;
+  border-radius: 10px;
+  background-color: var(--tertiary);
 }
 
 .home-quiz-button-link {
