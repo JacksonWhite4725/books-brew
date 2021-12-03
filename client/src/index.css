@@ -64,3 +64,41 @@
   text-decoration: none;
   color: inherit;
 }
+
+.login {
+  height: 100%;
+  width: 100%;
+  background-image: url(./images/beer-homepage.jpg);
+  background-size: cover;
+}
+
+.login-container {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light);
+  border: solid black 5px;
+}
+
+.login-title {
+  font-size: 45px;
+}
+
+.login-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.login-form-items {
+  margin: 5px;
+}
+
+.signup-link {
+  margin-bottom: 10px;
+}
