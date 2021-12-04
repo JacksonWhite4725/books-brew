@@ -24,10 +24,28 @@ const Quiz = () => {
         {
             questionText: 'Which of the following fruits sound most appealing?',
             answerOptions: [
-                { answerText: 'Pumpkins' }, // Seasonal beer
-                { answerText: 'Cherries' }, // Sour pairing
-                { answerText: 'Oranges' }, // Mid SRM pairing
-                { answerText: 'Berries' } // Stout pairing
+                { answerText: 'Pumpkins', srmPoints: 2, ibuPoints: 2, abvPoints: 2 }, // Seasonal beer
+                { answerText: 'Cherries', srmPoints: 2, ibuPoints: 2, abvPoints: 2 }, // Sour pairing
+                { answerText: 'Oranges', srmPoints: 2, ibuPoints: 3, abvPoints: 3},
+                { answerText: 'Berries', srmPoints: 3, ibuPoints: 1, abvPoints: 2 }
+            ],
+        },
+        {
+            questionText: 'Which of the following chocolates sound most appealing?',
+            answerOptions: [
+                { answerText: 'Dark Chocolate', srmPoints: 4, ibuPoints: 4, abvPoints: 4 },
+                { answerText: 'Milk Chocolate', srmPoints: 2, ibuPoints: 1, abvPoints: 2 },
+                { answerText: 'White Chocolate', srmPoints: 1, ibuPoints: 2, abvPoints: 2},
+                { answerText: 'I Prefer Candy', srmPoints: 1, ibuPoints: 1, abvPoints: 1 } // Sour option
+            ],
+        },
+        {
+            questionText: 'What\'s your favorite beer setting?',
+            answerOptions: [
+                { answerText: 'A Nice Dinner', srmPoints: 4, ibuPoints: 3, abvPoints: 3 },
+                { answerText: 'A Big Party', srmPoints: 1, ibuPoints: 1, abvPoints: 3 },
+                { answerText: 'On Vacation', srmPoints: 2, ibuPoints: 2, abvPoints: 2},
+                { answerText: 'Relaxing', srmPoints: 3, ibuPoints: 2, abvPoints: 1 }
             ],
         },
     ];
@@ -39,40 +57,42 @@ const Quiz = () => {
     const [abvValue, setAbvValue] = useState(0);
     const [ibuValue, setIbuValue] = useState(0);
 
-    const handleAnswerOptionClick = ({ srmPoints, abvPoints, ibuPoints }) => {
-        if (srmPoints, abvPoints, ibuPoints) {
-            setSrmValue(srmValue + srmPoints);
-            setAbvValue(abvValue + abvPoints);
-            setIbuValue(ibuValue + ibuPoints);
+    const handleAnswerOptionClick = (answer) => {
+        if (answer.srmPoints, answer.abvPoints, answer.ibuPoints) {
+            setSrmValue(srmValue + answer.srmPoints);
+            setAbvValue(abvValue + answer.abvPoints);
+            setIbuValue(ibuValue + answer.ibuPoints);
         }
-
-       const nextQuestion = currentQuestion + 1;
-       if (nextQuestion < questions.length) {
-           setCurrentQuestion(nextQuestion);
-       } else {
-           setShowScore(true);
-       }
+        
+        const nextQuestion = currentQuestion + 1;
+        if (nextQuestion < questions.length) {
+            setCurrentQuestion(nextQuestion);
+        } else {
+            setShowScore(true);
+        }
     };
 
     return (
         <div className='quiz'>
 			{showScore ? (
 				<div className='score-section'>
-					You scored {score} out of {questions.length}
+					You got {srmValue} SRM points, {ibuValue} IBU points, and {abvValue} ABV points.
 				</div>
 			) : (
 				<>
-					<div className='quiz-container'>
+                <div className='quiz-container'>
+					<div className='question-container'>
 						<div className='question-count'>
 							<span>Question {currentQuestion + 1}</span>/{questions.length}
 						</div>
 						<div className='quiz-question'>{questions[currentQuestion].questionText}</div>
 					</div>
 					<div className='quiz-answers'>
-						{questions[currentQuestion].answerOptions.map((answerOption, i) => (
-							<button onClick={() => handleAnswerOptionClick(answerOption[i])}>{answerOption.answerText}</button>
+						{questions[currentQuestion].answerOptions.map((answerOption) => (
+							<button onClick={() => handleAnswerOptionClick(answerOption)}>{answerOption.answerText}</button>
 						))}
 					</div>
+                </div>
 				</>
 			)}
 		</div>
