@@ -12,6 +12,7 @@ import { useState } from 'react';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Quiz from './pages/Quiz';
 import Nav from './components/Nav';
 import Menu from './components/Menu';
 
@@ -47,6 +48,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path='/quiz' component={Quiz} />
           </Switch>
           </div>
         </div>
