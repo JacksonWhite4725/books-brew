@@ -6,19 +6,19 @@ const Quiz = () => {
         {
             questionText: 'Which of these beverages sounds most appealing?',
             answerOptions: [
-                { answerText: 'Coffee' },
-                { answerText: 'Orange Juice' },
-                { answerText: 'Ginger Beer' },
-                { answerText: 'Water' }
+                { answerText: 'Coffee', srmPoints: 4, ibuPoints: 3, abvPoints: 4 },
+                { answerText: 'Orange Juice', srmPoints: 2, ibuPoints: 4, abvPoints: 2 },
+                { answerText: 'Ginger Beer', srmPoints: 3, ibuPoints: 2, abvPoints: 3 },
+                { answerText: 'Water', srmPoints: 1, ibuPoints: 1, abvPoints: 1 }
             ],
         },
         {
             questionText: 'Which of the these foods sound most appealing?',
             answerOptions: [
-                { answerText: 'Smoked Brisket' },
-                { answerText: 'Hand-Tossed Salad' },
-                { answerText: 'Grilled Salmon' },
-                { answerText: 'PB&J Sandwich' }
+                { answerText: 'Smoked Brisket', srmPoints: 4, ibuPoints: 2, abvPoints: 4 },
+                { answerText: 'Hand-Tossed Salad', srmPoints: 1, ibuPoints: 3, abvPoints: 2 },
+                { answerText: 'Grilled Salmon', srmPoints: 2, ibuPoints: 4, abvPoints: 1 },
+                { answerText: 'PB&J Sandwich', srmPoints: 3, ibuPoints: 1, abvPoints: 3 }
             ],
         },
         {
@@ -39,13 +39,13 @@ const Quiz = () => {
     const [abvValue, setAbvValue] = useState(0);
     const [ibuValue, setIbuValue] = useState(0);
 
-    const handleAnswerOptionClick = () => {
-        /* if (srmPoints, abvPoints, ibuPoints) {
+    const handleAnswerOptionClick = ({ srmPoints, abvPoints, ibuPoints }) => {
+        if (srmPoints, abvPoints, ibuPoints) {
             setSrmValue(srmValue + srmPoints);
             setAbvValue(abvValue + abvPoints);
             setIbuValue(ibuValue + ibuPoints);
         }
-        */
+
        const nextQuestion = currentQuestion + 1;
        if (nextQuestion < questions.length) {
            setCurrentQuestion(nextQuestion);
@@ -69,8 +69,8 @@ const Quiz = () => {
 						<div className='quiz-question'>{questions[currentQuestion].questionText}</div>
 					</div>
 					<div className='quiz-answers'>
-						{questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+						{questions[currentQuestion].answerOptions.map((answerOption, i) => (
+							<button onClick={() => handleAnswerOptionClick(answerOption[i])}>{answerOption.answerText}</button>
 						))}
 					</div>
 				</>
