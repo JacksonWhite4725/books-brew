@@ -72,10 +72,10 @@
   background-size: cover;
 }
 
-.login-container, .singup-container, .quiz-container {
+.login-container, .singup-container, .quiz-container, .results-container {
   position: absolute;
   left: 50%;
-  top: 35%;
+  top: 40%;
   transform: translate(-50%, -50%);
   align-items: center;
   display: flex;
@@ -141,4 +141,15 @@
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+}
+
+.result-name {
+  font-size: 40px;
+}
+
+.beer-image {
+  height: 300px;
+  width: 300px;
+  background-image: url(./images/american-lager.png);
+  background-size: cover;
 }

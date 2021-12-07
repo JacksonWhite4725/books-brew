@@ -30,4 +30,8 @@ export const ADD_USER = gql`
       }
     }
   }
-`;
+`
+const SAVE_STYLE = gql`
+  
+`
+;

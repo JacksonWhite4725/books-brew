@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Auth from '../utils/auth';
+import { SAVE_STYLE } from '../utils/mutations';
 
 const Quiz = () => {
     const questions = [
@@ -72,11 +73,25 @@ const Quiz = () => {
         }
     };
 
+    const handleUserSaveClick = () => {
+        // push results to user account
+    };
+
     return (
         <div className='quiz'>
 			{showScore ? (
-				<div className='score-section'>
-					You got {srmValue} SRM points, {ibuValue} IBU points, and {abvValue} ABV points.
+				<div className='results-section'>
+                    <div className='results-container'>
+                        <h1>Your Results</h1>
+                        <h2 className='result-name'>Golden Lager</h2>
+                        <div className='beer-image'></div>
+                        <p className='result-description'>American lager has little in the way of hop and malt character. A straw to gold, very clean and crisp, highly carbonated lager.</p>
+                        {Auth.loggedIn() ? (
+                            <button onClick={handleUserSaveClick}>Save Result</button>
+                        ) : (
+                            <span>Login to Save Results</span>
+                        )}
+                    </div>
 				</div>
 			) : (
 				<>
