@@ -31,7 +31,15 @@ export const ADD_USER = gql`
     }
   }
 `
-const SAVE_STYLE = gql`
-  
+export const SAVE_STYLE = gql`
+  mutation saveStyle($styles: [ID]!) {
+    saveStyle(styles: $styles) {
+      styles {
+        _id
+        name
+        description
+      }
+    }
+  }
 `
 ;

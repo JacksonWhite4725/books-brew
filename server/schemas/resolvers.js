@@ -46,7 +46,14 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
+    saveStyle: async (parent, { style }, context) => {
+      if (context.user) {
+        return await User.findByIdAndUpdate(context.user._id, style, { $push: { styles: style } });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
   }
 };
 
