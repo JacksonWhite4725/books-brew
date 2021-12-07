@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 import { SAVE_STYLE } from '../utils/mutations';
+import styleData from '../utils/styleData';
 
 const Quiz = () => {
     const questions = [
@@ -57,6 +58,8 @@ const Quiz = () => {
     const [srmValue, setSrmValue] = useState(0);
     const [abvValue, setAbvValue] = useState(0);
     const [ibuValue, setIbuValue] = useState(0);
+    const [chosenName, setName] = useState('');
+    const [chosenDesc, setDesc] = useState('');
 
     const handleAnswerOptionClick = (answer) => {
         if (answer.srmPoints, answer.abvPoints, answer.ibuPoints) {
@@ -69,9 +72,85 @@ const Quiz = () => {
         if (nextQuestion < questions.length) {
             setCurrentQuestion(nextQuestion);
         } else {
+            calculateBeer(srmValue, abvValue, ibuValue);
             setShowScore(true);
         }
     };
+
+    const calculateBeer = (srmValue, abvValue, ibuValue) => {
+        if (srmValue < 10) {
+            var colorData = styleData.filter(function(value) {
+                return value.srm < 10;
+            });
+            if (ibuValue < 8) {
+                var bitterData = colorData.filter(function(value) {
+                    return value.ibu < 8;
+                });
+                const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
+                setName(selectedBeer.style);
+                setDesc(selectedBeer.description);
+            } else if (ibuValue >= 8 && ibuValue < 13) {
+                var bitterData = colorData.filter(function(value) {
+                    return value.ibu < 13 && value.ibu >= 8; 
+                });
+                const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
+                setName(selectedBeer.style);
+                setDesc(selectedBeer.description);
+            } else {
+                var bitterData = colorData.filter(function(value) {
+                    return value.ibu >= 13; 
+                });
+                const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
+                setName(selectedBeer.style);
+                setDesc(selectedBeer.description);
+            }
+        } else if (srmValue >= 10 && srmValue < 15) {
+            var colorData = styleData.filter(function(value) {
+                return value.srm < 15 && value.srm >= 10;
+            });
+            if (ibuValue < 8) {
+                var bitterData = colorData.filter(function(value) {
+                    return value.ibu < 8;
+                });
+                const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
+                setName(selectedBeer.style);
+                setDesc(selectedBeer.description);
+            } else {
+                var bitterData = colorData.filter(function(value) {
+                    return value.ibu < 13 && value.ibu >= 8; 
+                });
+                const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
+                setName(selectedBeer.style);
+                setDesc(selectedBeer.description);
+            }
+        } else {
+            var colorData = styleData.filter(function(value) {
+                return value.srm >= 15;
+            });
+            if (ibuValue < 8) {
+                var bitterData = colorData.filter(function(value) {
+                    return value.ibu < 8;
+                });
+                const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
+                setName(selectedBeer.style);
+                setDesc(selectedBeer.description);
+            } else if (ibuValue >= 8 && ibuValue < 13) {
+                var bitterData = colorData.filter(function(value) {
+                    return value.ibu < 13 && value.ibu >= 8; 
+                });
+                const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
+                setName(selectedBeer.style);
+                setDesc(selectedBeer.description);
+            } else {
+                var bitterData = colorData.filter(function(value) {
+                    return value.ibu >= 13; 
+                });
+                const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
+                setName(selectedBeer.style);
+                setDesc(selectedBeer.description);
+            }
+        }
+    }
 
     const handleUserSaveClick = () => {
         // push results to user account
@@ -83,9 +162,9 @@ const Quiz = () => {
 				<div className='results-section'>
                     <div className='results-container'>
                         <h1>Your Results</h1>
-                        <h2 className='result-name'>Golden Lager</h2>
+                        <h2 className='result-name'>{chosenName}</h2>
                         <div className='beer-image'></div>
-                        <p className='result-description'>American lager has little in the way of hop and malt character. A straw to gold, very clean and crisp, highly carbonated lager.</p>
+                        <p className='result-description'>{chosenDesc}</p>
                         {Auth.loggedIn() ? (
                             <button onClick={handleUserSaveClick}>Save Result</button>
                         ) : (
