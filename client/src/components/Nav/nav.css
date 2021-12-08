@@ -86,3 +86,9 @@
     background-color: #7F4F24;
     transform: rotate(-45deg);
 }
+
+@media screen and (max-width: 600px) {
+    .logo {
+      font-size: 25px;
+    }
+}

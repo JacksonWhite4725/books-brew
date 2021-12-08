@@ -1,3 +1,4 @@
+import { useMutation } from '@apollo/client';
 import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 import { SAVE_STYLE } from '../utils/mutations';
@@ -61,6 +62,7 @@ const Quiz = () => {
     const [chosenName, setName] = useState('');
     const [chosenDesc, setDesc] = useState('');
     const [chosenImg, setImg] = useState('');
+    const [saveStyle] = useMutation(SAVE_STYLE);
 
     const handleAnswerOptionClick = (answer) => {
         if (answer.srmPoints, answer.abvPoints, answer.ibuPoints) {
@@ -176,8 +178,10 @@ const Quiz = () => {
         }
     }
 
-    const handleUserSaveClick = () => {
-        // push results to user account
+    const handleUserSaveClick = async (chosenName, chosenDesc) => {
+        await saveStyle({
+            variables:{ name: chosenName, description: chosenDesc }
+        })
     };
 
     return (

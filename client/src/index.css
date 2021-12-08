@@ -208,3 +208,22 @@
 .stout {
   background-image: url('./images/stout.png');
 }
+
+@media screen and (max-width: 600px) {
+  .home-right-container {
+    width: 90%;
+    float: none;
+  }
+
+  .login-container, .singup-container, .quiz-container, .results-container {
+    position: relative;
+  }
+
+  .quiz-answers {
+    flex-direction: column;
+  }
+
+  .results-container {
+    margin-top: 350px;
+  }
+}
