@@ -32,10 +32,13 @@ export const ADD_USER = gql`
   }
 `
 export const SAVE_STYLE = gql`
-  mutation saveStyle($styles: [ID]!) {
-    saveStyle(styles: $styles) {
+  mutation saveStyle($name: String!, $description: String!) {
+    saveStyle(name: $name, description: $description) {
+      _id
+      firstName
+      lastName
+      email
       styles {
-        _id
         name
         description
       }

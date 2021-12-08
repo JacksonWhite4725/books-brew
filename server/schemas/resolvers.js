@@ -47,9 +47,9 @@ const resolvers = {
 
       return { token, user };
     },
-    saveStyle: async (parent, { style }, context) => {
+    saveStyle: async (parent, { name, description }, context) => {
       if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, style, { $push: { styles: style } });
+        return await User.findByIdAndUpdate(context.user._id, { $push: { styles: { name, description } } });
       }
 
       throw new AuthenticationError('Not logged in');

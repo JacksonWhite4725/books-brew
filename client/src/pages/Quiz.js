@@ -178,7 +178,8 @@ const Quiz = () => {
         }
     }
 
-    const handleUserSaveClick = async (chosenName, chosenDesc) => {
+    const handleUserSaveClick = async () => {
+        console.log()
         await saveStyle({
             variables:{ name: chosenName, description: chosenDesc }
         })
@@ -194,7 +195,7 @@ const Quiz = () => {
                         <div className={`beer-image ${chosenImg}`}></div>
                         <p className='result-description'>{chosenDesc}</p>
                         {Auth.loggedIn() ? (
-                            <button onClick={handleUserSaveClick}>Save Result</button>
+                            <button onClick={()=>{handleUserSaveClick()}}>Save Result</button>
                         ) : (
                             <span>Login to Save Results</span>
                         )}
