@@ -60,6 +60,7 @@ const Quiz = () => {
     const [ibuValue, setIbuValue] = useState(0);
     const [chosenName, setName] = useState('');
     const [chosenDesc, setDesc] = useState('');
+    const [chosenImg, setImg] = useState('');
 
     const handleAnswerOptionClick = (answer) => {
         if (answer.srmPoints, answer.abvPoints, answer.ibuPoints) {
@@ -89,6 +90,9 @@ const Quiz = () => {
                 const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
                 setName(selectedBeer.style);
                 setDesc(selectedBeer.description);
+                let lowerCaseStyle = selectedBeer.style.toLowerCase();
+                let imageClass = lowerCaseStyle.replace(/\s/g , "-");
+                setImg(imageClass);
             } else if (ibuValue >= 8 && ibuValue < 13) {
                 var bitterData = colorData.filter(function(value) {
                     return value.ibu < 13 && value.ibu >= 8; 
@@ -96,6 +100,9 @@ const Quiz = () => {
                 const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
                 setName(selectedBeer.style);
                 setDesc(selectedBeer.description);
+                let lowerCaseStyle = selectedBeer.style.toLowerCase();
+                let imageClass = lowerCaseStyle.replace(/\s/g , "-");
+                setImg(imageClass);
             } else {
                 var bitterData = colorData.filter(function(value) {
                     return value.ibu >= 13; 
@@ -103,6 +110,9 @@ const Quiz = () => {
                 const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
                 setName(selectedBeer.style);
                 setDesc(selectedBeer.description);
+                let lowerCaseStyle = selectedBeer.style.toLowerCase();
+                let imageClass = lowerCaseStyle.replace(/\s/g , "-");
+                setImg(imageClass);
             }
         } else if (srmValue >= 10 && srmValue < 15) {
             var colorData = styleData.filter(function(value) {
@@ -115,6 +125,9 @@ const Quiz = () => {
                 const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
                 setName(selectedBeer.style);
                 setDesc(selectedBeer.description);
+                let lowerCaseStyle = selectedBeer.style.toLowerCase();
+                let imageClass = lowerCaseStyle.replace(/\s/g , "-");
+                setImg(imageClass);
             } else {
                 var bitterData = colorData.filter(function(value) {
                     return value.ibu < 13 && value.ibu >= 8; 
@@ -122,6 +135,9 @@ const Quiz = () => {
                 const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
                 setName(selectedBeer.style);
                 setDesc(selectedBeer.description);
+                let lowerCaseStyle = selectedBeer.style.toLowerCase();
+                let imageClass = lowerCaseStyle.replace(/\s/g , "-");
+                setImg(imageClass);
             }
         } else {
             var colorData = styleData.filter(function(value) {
@@ -134,6 +150,9 @@ const Quiz = () => {
                 const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
                 setName(selectedBeer.style);
                 setDesc(selectedBeer.description);
+                let lowerCaseStyle = selectedBeer.style.toLowerCase();
+                let imageClass = lowerCaseStyle.replace(/\s/g , "-");
+                setImg(imageClass);
             } else if (ibuValue >= 8 && ibuValue < 13) {
                 var bitterData = colorData.filter(function(value) {
                     return value.ibu < 13 && value.ibu >= 8; 
@@ -141,13 +160,18 @@ const Quiz = () => {
                 const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
                 setName(selectedBeer.style);
                 setDesc(selectedBeer.description);
+                let lowerCaseStyle = selectedBeer.style.toLowerCase();
+                let imageClass = lowerCaseStyle.replace(/\s/g , "-");
+                setImg(imageClass);
             } else {
                 var bitterData = colorData.filter(function(value) {
                     return value.ibu >= 13; 
                 });
                 const selectedBeer = bitterData[Math.floor(Math.random() * bitterData.length)];
                 setName(selectedBeer.style);
-                setDesc(selectedBeer.description);
+                setDesc(selectedBeer.description);let lowerCaseStyle = selectedBeer.style.toLowerCase();
+                let imageClass = lowerCaseStyle.replace(/\s/g , "-");
+                setImg(imageClass);
             }
         }
     }
@@ -163,7 +187,7 @@ const Quiz = () => {
                     <div className='results-container'>
                         <h1>Your Results</h1>
                         <h2 className='result-name'>{chosenName}</h2>
-                        <div className='beer-image'></div>
+                        <div className={`beer-image ${chosenImg}`}></div>
                         <p className='result-description'>{chosenDesc}</p>
                         {Auth.loggedIn() ? (
                             <button onClick={handleUserSaveClick}>Save Result</button>

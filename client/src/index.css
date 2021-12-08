@@ -150,6 +150,61 @@
 .beer-image {
   height: 300px;
   width: 300px;
-  background-image: url(./images/american-lager.png);
   background-size: cover;
+}
+
+.golden-lager {
+  background-image: url(./images/golden-lager.png);
+}
+
+.pilsner {
+  background-image: url('./images/pilsner.png');
+}
+
+.pale-ale {
+  background-image: url('./images/pale-ale.png');
+}
+
+.india-pale-ale {
+  background-image: url('./images/india-pale-ale.png');
+}
+
+.blonde-ale {
+  background-image: url('./images/blonde-ale.png');
+}
+
+.belgian-style-dubbel {
+  background-image: url('./images/belgian-style-dubbel.png');
+}
+
+.belgian-style-tripel {
+  background-image: url('./images/belgian-style-tripel.png');
+}
+
+.belgian-style-quadrupel {
+  background-image: url('./images/belgian-style-quadrupel.png');
+}
+
+.light-sour-ale {
+  background-image: url('./images/light-sour-ale.png');
+}
+
+.red-ale {
+  background-image: url('./images/red-ale.png');
+}
+
+.porter {
+  background-image: url('./images/porter.png');
+}
+
+.dark-sour-ale {
+  background-image: url('./images/dark-sour-ale.png');
+}
+
+.brown-ale {
+  background-image: url('./images/brown-ale.png');
+}
+
+.stout {
+  background-image: url('./images/stout.png');
 }
