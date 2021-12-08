@@ -65,14 +65,14 @@
   color: inherit;
 }
 
-.login, .signup, .quiz {
+.login, .signup, .quiz, .account {
   height: 100%;
   width: 100%;
   background-image: url(./images/beer-homepage.jpg);
   background-size: cover;
 }
 
-.login-container, .singup-container, .quiz-container, .results-container {
+.login-container, .singup-container, .quiz-container, .results-container, .account-container {
   position: absolute;
   left: 50%;
   top: 40%;
