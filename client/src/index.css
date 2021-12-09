@@ -215,7 +215,7 @@
     float: none;
   }
 
-  .login-container, .singup-container, .quiz-container, .results-container {
+  .login-container, .singup-container, .quiz-container, .results-container, .account-container {
     position: relative;
   }
 
